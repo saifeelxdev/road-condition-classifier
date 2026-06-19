@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+//const API_URL = "https://road-condition-classifier-api.onrender.com/predict";
 function App() {
   const [imageFile, setImageFile] = useState(null);
   const [previewUrl, setPreviewUrl] = useState(null);
@@ -47,10 +48,13 @@ function App() {
 
       formData.append("image", imageFile);
 
-      const response = await fetch("http://127.0.0.1:5000/predict", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        "https://road-condition-classifier-api.onrender.com/predict",
+        {
+          method: "POST",
+          body: formData,
+        },
+      );
 
       if (!response.ok) {
         throw new Error("Backend request failed.");

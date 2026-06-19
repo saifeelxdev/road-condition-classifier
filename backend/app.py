@@ -3,6 +3,21 @@ from flask import Flask, request
 import os
 import uuid
 from flask_cors import CORS
+
+BASE_DIR = os.path.dirname(
+    os.path.abspath(__file__)
+)
+
+UPLOAD_FOLDER = os.path.join(
+    BASE_DIR, 
+    "uploads"
+)
+
+os.makedirs(
+    UPLOAD_FOLDER,
+    exist_ok=True
+)
+
 app = Flask(__name__)
 CORS(app)
 @app.route("/")
@@ -24,7 +39,7 @@ def predict():
     )
 
     save_path = os.path.join(
-        "uploads",
+        UPLOAD_FOLDER,
         unique_filename
     )
 
