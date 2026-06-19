@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-//const API_URL = "https://road-condition-classifier-api.onrender.com/predict";
+const API_URL = "https://road-condition-classifier-api.onrender.com/predict";
 function App() {
   const [imageFile, setImageFile] = useState(null);
   const [previewUrl, setPreviewUrl] = useState(null);
@@ -48,7 +48,7 @@ function App() {
 
       formData.append("image", imageFile);
 
-      const response = await fetch(" http://127.0.0.1:5000/predict", {
+      const response = await fetch(API_URL, {
         method: "POST",
         body: formData,
       });
