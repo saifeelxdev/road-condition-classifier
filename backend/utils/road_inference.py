@@ -3,7 +3,14 @@ import torch.nn as nn
 import os
 from PIL import Image
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
+MODEL_PATH = os.path.join(
+    BASE_DIR,
+    "..",
+    "models",
+    "best_road_classifier.pth"
+)
 from torchvision.models import (
     efficientnet_b0,
     EfficientNet_B0_Weights
@@ -24,7 +31,7 @@ model.classifier[1] = nn.Linear(
 
 model.load_state_dict(
     torch.load(
-        "models/best_road_classifier.pth",
+        MODEL_PATH,
         map_location=device
     )
 )
