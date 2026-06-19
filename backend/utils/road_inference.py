@@ -28,13 +28,14 @@ model.classifier[1] = nn.Linear(
     model.classifier[1].in_features,
     2
 )
-
+print("Loading model")
 model.load_state_dict(
     torch.load(
         MODEL_PATH,
         map_location=device
     )
 )
+print("Model Loaded")
 
 model.to(device)
 
