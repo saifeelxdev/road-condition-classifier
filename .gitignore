@@ -1,0 +1,25 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Backend uploads
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# Dataset
+data/
+
+# Notebooks
+notebooks/
+
+# OS files
+.DS_Store
+Thumbs.db
