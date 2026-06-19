@@ -30,6 +30,8 @@ def home():
 @app.route("/predict", methods=["POST"])
 def predict():
 
+    print("request recieved")
+
     file = request.files["image"]
     
     extension = file.filename.split(".")[-1]
@@ -44,12 +46,15 @@ def predict():
     )
     print(save_path)
     file.save(save_path)
+    print("file saved")
     try:
         result = predict_image(save_path)
+        print("prediction complete")
     
     finally:
         if os.path.exists(save_path):
             os.remove(save_path)
+            print("file removed")
 
     return result
 if __name__ == "__main__":
