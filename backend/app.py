@@ -42,7 +42,7 @@ def predict():
         UPLOAD_FOLDER,
         unique_filename
     )
-
+    print(save_path)
     file.save(save_path)
     try:
         result = predict_image(save_path)
